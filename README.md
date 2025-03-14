@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+Este projeto utiliza **Next.js**, **Prisma**, **PostgreSQL**, e **Tailwind CSS** para o frontend e backend. Abaixo estão as instruções de como configurar e executar o projeto utilizando Docker e Docker Compose.
 
-First, run the development server:
+## Requisitos
+
+- Docker
+- Docker Compose
+- Node.js
+
+## Passos para executar o projeto
+
+### 1. Clonar o repositório
+
+Primeiro, clone o repositório do projeto em sua máquina local:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/usuario/ecommerce.git
+cd ecommerce
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Configurar o Docker
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+O projeto utiliza Docker e Docker Compose para configurar o banco de dados PostgreSQL. Certifique-se de que o Docker está instalado corretamente.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Configurar as variáveis de ambiente
 
-## Learn More
+```
+DATABASE_URL=postgresql://root:password@localhost:5432/ecommerce?schema=public
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 4. Iniciar o PostgreSQL com Docker Compose
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+docker compose up -d
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 5. Instalar as dependências do projeto
 
-## Deploy on Vercel
+```bash
+npm install
+```
+### 6. Configurar o banco de dados com Prisma
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npx prisma migrate
+npx prisma db seed
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 7. Executar o projeto
