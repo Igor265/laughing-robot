@@ -14,7 +14,7 @@ Este projeto utiliza **Next.js**, **Prisma**, **PostgreSQL**, e **Tailwind CSS**
 Primeiro, clone o repositório do projeto em sua máquina local:
 
 ```bash
-git clone [https://github.com/usuario/ecommerce.git ](https://github.com/Igor265/laughing-robot)
+git clone https://github.com/Igor265/laughing-robot
 cd laughing-robot
 ```
 
